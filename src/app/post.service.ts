@@ -22,7 +22,6 @@ export class PostService {
   }
   public updatePost(newPost: Post) {
     this.http.post(`https://rocky-woodland-19657.herokuapp.com/posts/${newPost._id}`, { post: newPost }).subscribe((posts: Post[]) => {
-      console.log(posts);
       this.posts.next(posts);
     });
   }

@@ -24,15 +24,6 @@ export class ListComponent {
   public onPostComment(post: Post) {
     post.comments.push(this.commentInput);
     this.commentInput = '';
-    console.log(post);
     this.postService.updatePost(post);
-  }
-
-  public writeGPS(position) {
-    console.log(position.coords);
-    if (navigator.geolocation) {
-      console.log(navigator.geolocation.getCurrentPosition(this.writeGPS));
-    }
-    window.open(`https://www.google.de/maps/@${position.coords.latitude},${position.coords.longitude},15z`, '_blank');
   }
 }
