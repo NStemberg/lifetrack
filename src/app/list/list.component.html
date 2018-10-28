@@ -1,18 +1,38 @@
 <mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ posts[0].title }}
+  <mat-expansion-panel *ngFor="let post of _posts">
+    <mat-expansion-panel-header class="header">
+      <mat-panel-title class="mat-headline">
+        <span>{{ post.title }}</span>
       </mat-panel-title>
       <mat-panel-description>
-        {{ posts[0].date }}
+        {{ post.date }}
       </mat-panel-description>
     </mat-expansion-panel-header>
     <span>
-        {{ posts[0].content }}
+        {{ post.content }}
     </span>
-    <button (click)="onClick()">
-      Open
-    </button>
+    <br/>
+    <br/>
+    <div style="width: 100%" class="center">
+      <button mat-raised-button (click)="onClick(post)" color="primary">
+        <span>Zeig mir den Standort  </span>
+        <mat-icon>my_location</mat-icon>
+      </button>
+    </div>
+    <br/>
+    <hr/>
+    <br/>
+    <mat-card *ngFor="let comment of post.comments" class="card">
+      {{ comment }}
+    </mat-card>
+    <br/>
+    <div style="width: 100%" class="between">
+      <mat-form-field>
+        <input matInput placeholder="Type a comment..." [(ngModel)]="commentInput"/>
+      </mat-form-field>
+      <button mat-raised-button type="button" (click)="onPostComment(post)" color="secondary">
+        Send Comment
+      </button>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>

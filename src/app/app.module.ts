@@ -7,9 +7,14 @@ import { ListComponent } from './list/list.component';
 import { CreateComponent } from './create/create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule } from '@angular/material';
-import { MatExpansionModule } from '@angular/material';
+import { MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule, MatIconModule} from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material';
+import {PostService} from './post.service';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,8 +29,13 @@ import { MatFormFieldModule } from '@angular/material';
     MatButtonModule,
     MatExpansionModule,
     MatFormFieldModule,
+    HttpClientModule,
+    MatInputModule,
+    MatCardModule,
+    FormsModule,
+    MatIconModule,
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
